@@ -1,0 +1,26 @@
+// Place all the styles related to the Weeks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.btn-danger {
+  color: #6aaf4e;
+}
+
+a:focus{color: white}
+a:active{color: green}
+a:hover {
+  background-color: transparent;
+  text-underline: none;
+  color: brown;
+}
+
+.media.media-vert-divider > .pull-left:hover {
+  background-color: white;
+}
+
+img:hover{background-color: white}
+
+#top-nav .navbar-header .navbar-brand img.logo {
+  height: 63px;
+  padding-bottom: 10px;
+}

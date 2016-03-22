@@ -1,0 +1,58 @@
+<% @course = Course.all
+   @week = Week.all
+   @syllabus= Syllabus.all
+%>
+
+<% if @course.empty? %>
+
+    <div class="field">
+      <%= link_to Create New Course,new_course_path %>
+    </div>
+
+<% elsif @week.empty? %>
+    <div class="field">
+      <%= link_to Create Week,new_week_path %>
+    </div>
+
+
+<% elsif @syllabus.empty? %>
+    <div class="field">
+      <%= link_to Create Syllabus,new_syllabus_path %>
+    </div>
+
+
+<% else %>
+
+
+    <%= form_for(@lecture) do |f| %>
+  <% if @lecture.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lecture.errors.count, "error") %> prohibited this lecture from being saved:</h2>
+
+      <ul>
+      <% @lecture.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :video_link %><br>
+    <%= f.text_field :video_link %>
+  </div>
+        <div class="field">
+          <%= f.select :course_id, options_from_collection_for_select(@course, 'id', 'name') %>
+          <%= f.select :week_id, options_from_collection_for_select(@week, 'id', 'name') %>
+          <%= f.select :syllabus_id, options_from_collection_for_select(@syllabus, 'id', 'name') %>
+        </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<% end %>

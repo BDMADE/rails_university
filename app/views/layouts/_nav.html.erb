@@ -1,0 +1,101 @@
+<div id="top-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/"><img class="logo" src="<%= image_path('logo.png')%> " alt="Rails University"/></a>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div><!--end left col -->
+
+      <div class="navbar-collapse collapse">
+        <% if user_signed_in? %>
+
+            <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="btn btn-danger navbar-btn">
+              My Courses
+            </a>
+            <div class="nav-username">
+              <%= current_user.username %>
+            </div>
+            <ul class="dropdown-menu">
+              <li><%= link_to 'My Courses', admin_path %></li>
+              <li><%= link_to 'University Profile', edit_user_registration_path %></li>
+              <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete  %></li>
+            </ul>
+          </li>
+        </ul>
+
+
+        <% else %>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <%= link_to "Sign In",new_user_session_path, id:'login-button' ,class: 'btn btn-danger navbar-btn'  %>
+              </li>
+            </ul>
+            <% end %>
+
+        <ul class="nav navbar-nav navbar-left">
+
+
+          <li class="dropdown">
+            <a href="#">Instructor</a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Course",courses_path  %></li>
+              <li><%= link_to "Week",weeks_path  %></li>
+              <li><%= link_to "Week Syllabus",syllabuses_path  %></li>
+              <li><%= link_to "Lecture",lectures_path  %></li>
+              <li><%= link_to "Assignment",assignments_path  %></li>
+
+            </ul>
+          </li>
+
+
+          <li class="dropdown">
+            <a href="#">Professional Certification</a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Certified Professional Finder</a></li>
+              <li><a href="#">Developer Exam</a></li>
+              <li><a href="#">DBA Exam</a></li>
+              <li><a href="#">Why Certification?</a></li>
+              <li><a href="#">Preparation Materials</a></li>
+              <li><a href="#">Verify a Certification</a></li>
+              <li><a href="#">Study Sessions</a></li>
+              <li><a href="#">Exam Schedule</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+
+            <a href="#">Online Courses</a>
+            <ul class="dropdown-menu">
+              <li><a href="#">What are Online Courses?</a></li>
+              <li><a href="#">Online Course Catalog</a></li>
+              <li><a href="#">Online Course Schedule</a></li>
+              <li><a href="#">How Courses Are Produced</a></li>
+            </ul>
+
+          </li>
+          <li class="dropdown">
+            <a href="#">Public Training</a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Why Public Training?</a></li>
+              <li><a href="#">Public Training Schedule</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#">Private Training</a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Why Private Training?</a></li>
+              <li><a href="#">Private Training Products</a></li>
+            </ul>
+          </li>
+        </ul>
+
+
+      </div>
+    </div>
+  </div>
+  <div class="nav-spaceholder"></div>

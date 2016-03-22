@@ -1,0 +1,255 @@
+* html {
+  font-size: 100%; }
+
+body {
+  color: #31302F;
+  font-size: 16px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.025em;
+  line-height: 1.5; }
+
+strong {
+  font-weight: 500; }
+
+.wf-inactive h1, .wf-loading h1 {
+  font-size: 3.75em; }
+
+h1 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 40px; /* size for phones */
+  line-height: 1;
+  margin-bottom: 0.75em;
+  margin-top: 30px;
+}
+@media (min-width: 768px) { /* breakpoint for phone vs tablet */
+  h1 {
+    font-size: 50px;
+    margin-top: 40px;
+  }
+}
+@media (min-width: 1150px) { /* breakpoint for the #top-nav size, see main.css */
+  h1 {
+    font-size: 60px;
+  }
+}
+
+.headline-light h1 {
+  color: #FFFFFF; }
+
+.page-node h1 {
+  margin-top: 100px;
+  text-align: center; }
+
+/* Bootstrap makes no distinction between links and anchors,
+ * so we have to override it to style non-link anchors as normal text.
+ */
+a:not(:link):not(:visited) {
+  color: black;
+  text-decoration: none;
+}
+a {
+  color: #6aaf4e;
+  text-decoration: none;
+}
+
+.e-img-hero {
+  position: absolute;
+  top: 0px;
+  left: 5%;
+  z-index: -1;
+  width: 90%; }
+
+.e-caption {
+  font-size: "0.75em";
+  line-height: 1.67;
+  margin-top: 20px; }
+
+.e-img-l {
+  float: left;
+  margin: 60px 0;
+  width: 100%; }
+  .e-img-l .image {
+    float: left;
+    width: 42.5%; }
+  .e-img-l .text {
+    float: left;
+    font-size: "1.25em";
+    line-height: 1.7;
+    margin: 0 0 0 8.5%;
+    width: 49%; }
+
+.e-img-r {
+  float: left;
+  margin: 60px 0;
+  text-align: right;
+  width: 100%; }
+  .e-img-r .image {
+    float: right;
+    width: 42.5%; }
+  .e-img-r .text {
+    float: right;
+    font-size: "1.25em";
+    line-height: 1.7;
+    margin: 0 8.5% 0 0;
+    width: 49%; }
+
+.e-img-two {
+  float: left;
+  margin: 60px 0;
+  width: 100%; }
+  .e-img-two .image {
+    float: left;
+    width: 49%;
+    height: auto; }
+    .e-img-two .image .e-caption {
+      width: 49%; }
+  .e-img-two .image:first-child {
+    margin-right: 2%; }
+
+.e-img-full {
+  float: left;
+  margin: 60px 0;
+  width: 100%; }
+  .e-img-full img {
+    height: auto;
+    width: 100%; }
+
+.e-img-wide {
+  margin: 60px 0;
+  width: 150%; }
+
+.e-img-grid-full {
+  float: left;
+  margin: 60px 0;
+  width: 100%; }
+  .e-img-grid-full h2 {
+    font-size: 1em;
+    font-weight: 500;
+    line-height: 1.625; }
+  .e-img-grid-full h3 {
+    font-size: 0.875em;
+    font-weight: 500;
+    line-height: 1.25; }
+  .e-img-grid-full img {
+    border: 1px solid #C0BFBF; }
+  .e-img-grid-full .e-caption {
+    font-size: 0.875em;
+    line-height: 1.25;
+    margin-bottom: 30px; }
+  .e-img-grid-full .image {
+    float: left;
+    width: 23%;
+    margin-left: 2%; }
+    .e-img-grid-full .image:nth-child(4n+1) {
+      clear: left;
+      margin-left: 0; }
+
+.e-img-grid-half {
+  float: left;
+  margin: 60px 0;
+  width: 100%; }
+  .e-img-grid-half h2 {
+    font-size: 1em;
+    font-weight: 500;
+    line-height: 1.625; }
+  .e-img-grid-half h3 {
+    font-size: 0.875em;
+    font-weight: 500;
+    line-height: 1.25; }
+  .e-img-grid-half img {
+    border: 1px solid #C0BFBF; }
+  .e-img-grid-half .grid {
+    float: left;
+    width: 49%; }
+  .e-img-grid-half .text {
+    float: left;
+    font-size: "1.25em";
+    line-height: 1.7;
+    margin: 0 0 0 6%;
+    width: 45%; }
+    .e-img-grid-half .text p {
+      margin: 0; }
+  .e-img-grid-half .e-caption {
+    font-size: 0.875em;
+    line-height: 1.25;
+    margin-bottom: 30px; }
+  .e-img-grid-half .image {
+    float: left;
+    width: 47%;
+    margin-left: 4.1%; }
+    .e-img-grid-half .image:nth-child(2n+1) {
+      clear: left;
+      margin-left: 0; }
+
+.e-img-map {
+  float: left;
+  font-size: 1.25em;
+  line-height: 1.7;
+  margin: 60px 0;
+  width: 100%; }
+  .e-img-map h2 {
+    font-weight: 500;
+    margin: 0; }
+  .e-img-map p {
+    margin: 0; }
+  .e-img-map .image {
+    float: left;
+    width: 49%; }
+  .e-img-map .text {
+    float: left;
+    margin: 0 0 0 6%;
+    width: 45%; }
+
+.e-img-portrait-wide {
+  float: left;
+  font-size: 1.125em;
+  line-height: 1.33;
+  margin: 60px 0;
+  width: 100%; }
+  .e-img-portrait-wide p {
+    margin: 0; }
+  .e-img-portrait-wide .image {
+    border-right: 1px solid #C0BFBF;
+    float: left;
+    width: 23%;
+    padding-right: 5.3%; }
+  .e-img-portrait-wide .text {
+    float: left;
+    font-size: "1.25em";
+    line-height: 1.7;
+    margin: 0 0 0 5.3%;
+    width: 66.4%; }
+    .e-img-portrait-wide .text .name {
+      font-size: 0.78em;
+      line-height: 1.86; }
+
+.e-img-portrait-small {
+  float: left;
+  font-size: 1.125em;
+  line-height: 1.33;
+  margin: 60px 0;
+  width: 100%; }
+  .e-img-portrait-small p {
+    margin: 0; }
+  .e-img-portrait-small .image {
+    border-right: 1px solid #C0BFBF;
+    float: left;
+    width: 14.9%;
+    padding-right: 5.3%; }
+  .e-img-portrait-small .text {
+    float: left;
+    font-size: "1.25em";
+    line-height: 1.7;
+    margin: 0 0 0 5.3%;
+    width: 74.5%; }
+    .e-img-portrait-small .text .name {
+      font-size: 0.78em;
+      line-height: 1.86; }
+
+.e-img-portrait-small {
+  margin: 30px 0; }
+  .e-img-portrait-small img {
+    height: 91px;
+    width: 91px; }

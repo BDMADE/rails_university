@@ -1,44 +1,193 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1 class="text-center">University Profile</h1>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-  
-  <div class='field'>
-  <%= f.label :name %><br />
-  <%= f.text_field :name %>
-  </div>
+      <section>
+        <h2>Profile Info</h2>
+        <div id="alert-profile-info" class="alert alert-danger" style="display: none"></div>
+        <!--<form class="form-horizontal" method="post" action="/edit_profile" id="form-profile-info">-->
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put,:class=>'form-horizontal' }) do |f| %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+            <%= devise_error_messages! %>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+            <div class="form-group">
+            <label class="col-sm-4 control-label">Username</label>
+            <div class="col-sm-8">
+              <%= f.text_field :username,:class=>'form-control',:required =>'' %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+              <p id="help-block-username" class="help-block"></p>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+            </div>
+          </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
+          <div class="form-group">
+            <label class="col-sm-4 control-label">First Name</label>
+            <div class="col-sm-8">
+              <%= f.text_field :first_name,:class=>'form-control',:required =>'' %>
+
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <label class="col-sm-4 control-label">Last Name</label>
+            <div class="col-sm-8">
+              <%= f.text_field :last_name,:class=>'form-control',:required =>'' %>
+
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-sm-4 control-label">Location</label>
+            <div class="col-sm-8">
+
+              <%= f.select :location,options_for_select(country),:class=>'form-control' %>
+
+            </div>
+
+          </div>
+
+          <div class="form-group">
+            <label class="col-sm-4 control-label">Postal Code</label>
+            <div class="col-sm-8">
+              <%= f.text_field :postal_code,:class=>'form-control',:required =>'' %>
+
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <label class="col-sm-4 control-label">Company</label>
+            <div class="col-sm-8">
+              <%= f.text_field :company,:class=>'form-control',:required =>'' %>
+
+            </div>
+          </div>
+
+
+          <div class="form-group" >
+            <label class="col-sm-4 control-label">Job Function</label>
+            <div class="col-sm-8">
+
+              <%= f.select :job_function,options_for_select(job_status) %>
+
+
+
+            </div>
+          </div>
+
+
+          <div class="form-group" >
+            <label class="col-sm-4 control-label">MongoDB Experience Level</label>
+            <div class="col-sm-8">
+
+              <%= f.select :experience_level,options_for_select(mongo_experience_level) %>
+
+              <p class="help-block">What is your experience level with MongoDB?</p>
+
+            </div>
+          </div>
+
+
+          <div class="form-group" >
+            <label class="col-sm-4 control-label">Development Language</label>
+            <div class="col-sm-8">
+
+              <%= f.select :development_language,options_for_select(developer_lang),:class=>'form-control' %>
+
+
+              <p class="help-block">What is your primary development language?</p>
+
+            </div>
+          </div>
+
+
+            <div class="form-group">
+              <div class="col-sm-offset-4 col-sm-8">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="user[newsletter]" > Keep me up to date on MongoDB news
+                  </label>
+                </div>
+
+              </div>
+            </div>
+
+
+
+
+      <hr/>
+
+
+        <h2>Email and Password</h2>
+
+        <div id="alert-email" class="alert alert-danger" style="display: none"></div>
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+            <% end %>
+
+          <div class="form-group">
+            <label class="col-sm-4 control-label">New Email</label>
+            <div class="col-sm-8">
+              <%= f.email_field :email,:class=>'form-control',:required =>'' %>
+
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <label class="col-sm-4 control-label">New Password</label>
+            <div class="col-sm-8">
+              <%= f.password_field :password, autocomplete: "off",:class => 'form-control' %>
+              <p class="help-block">Leave blank if you don't want to change it</p>
+            </div>
+          </div>
+
+            <div class="form-group">
+              <label class="col-sm-4 control-label">Password Confirmation</label>
+              <div class="col-sm-8">
+                <%= f.password_field :password_confirmation, autocomplete: "off",:class => 'form-control' %>
+                <p class="help-block">Leave blank if you don't want to change it</p>
+              </div>
+            </div>
+
+<hr/>
+            <div class="form-group">
+              <label class="col-sm-4 control-label">Current Password</label>
+              <div class="col-sm-8">
+                <%= f.password_field :current_password, autocomplete: "off",:class => 'form-control' %>
+                <p class="help-block">Give current password to confirm your changes</p>
+              </div>
+            </div>
+
+
+          <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-8">
+              <button type="submit" class="btn btn-action">Update</button>
+              <%= link_to "Back", :back ,:class=>'btn btn-info' %>
+            </div>
+          </div>
+
 <% end %>
 
-<h3>Cancel my account</h3>
+      <hr/>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+        <h2>Drop Me</h2>
+        <p>Do you want to unregister of this account ?
+          <%= button_to "Drop my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete ,:class=>'btn btn-danger'%></p>
+
+
+      </section>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+

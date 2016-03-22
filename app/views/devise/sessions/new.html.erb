@@ -1,26 +1,53 @@
-<h2>Log in</h2>
+<section class="login-modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+        <h2 class="modal-title text-center">Sign In</h2>
+      </div>
+      <div class="modal-body">
+        <!--<form id="login_form" class="login_form" method="post" data-remote="true" action="/login">-->
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name),html: { class: 'login_form', id: "login_form"}) do |f| %>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+
+
+      <div class="form-group">
+            <label>Email</label>
+            <!--<input name="email" type="email" placeholder="Email" class="form-control"/>-->
+        <%= f.email_field :email,:class=>'form-control',:value=>'',:placeholder=> '',:required =>'' %>
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <!--<input name="password" type="password" placeholder="Password" class="form-control"/>-->
+            <%= f.password_field :password , :class=>'form-control',:required=>'',autocomplete: "off", placeholder: 'Password' %>
+            <p class="help-block"><a href="" data-dismiss="modal" data-toggle="modal" data-target="#forgot-password-modal">Forgot password?</a></p>
+          </div>
+
+            <!--<div class="checkbox">
+            <label class="remember-me">
+              <input name="remember" type="checkbox" value="true">
+              Remember me
+            </label>
+          </div>-->
+
+            <% if devise_mapping.rememberable? -%>
+                <div class="field">
+                  <%= f.check_box :remember_me %>
+                  <%= f.label :remember_me %>
+                </div>
+            <% end -%>
+
+
+            <input name="submit" type="submit" value="Access My Courses" class="btn btn-action btn-block"/>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <p class="text-center">
+          <strong>No account yet?</strong>
+         <%= link_to('Sign Up',new_user_registration_path) %>
+        </p>
+      </div>
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</section>

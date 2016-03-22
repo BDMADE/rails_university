@@ -1,7 +1,8 @@
 class DeviseCreateUsers < ActiveRecord::Migration
   def change
     create_table(:users) do |t|
-      ## Database authenticatable
+      ## Database authenticate table
+      t.string :username
       t.string :first_name
       t.string :last_name
       t.string :location

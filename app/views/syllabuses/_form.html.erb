@@ -1,0 +1,80 @@
+<% @course = Course.all
+   @week = Week.all
+%>
+
+<% if @course.empty? %>
+
+    <div class="field">
+      <%= link_to Create New Course,new_course_path %>
+    </div>
+
+ <% elsif @week.empty? %>
+    <div class="field">
+      <%= link_to Create Week,new_week_path %>
+    </div>
+
+<% else %>
+<%= form_for(@syllabus) do |f| %>
+    <% if @syllabus.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@syllabus.errors.count, "error") %> prohibited this syllabus from being saved:</h2>
+
+          <ul>
+            <% @syllabus.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.label :topics %><br>
+      <%= f.text_field :topics %>
+    </div>
+    <div class="field">
+      <%= f.label :released %><br>
+      <%= f.datetime_select :released %>
+    </div>
+    <div class="field">
+      <%= f.label :deadline %><br>
+      <%= f.datetime_select :deadline %>
+    </div>
+    <div class="field">
+      <%= f.label :lectures_time %><br>
+      <%= f.number_field :lectures_time %>
+    </div>
+    <div class="field">
+      <%= f.label :homework_time %><br>
+      <%= f.number_field :homework_time %>
+    </div>
+    <div class="field">
+      <%= f.label :handout %><br>
+      <%= f.check_box :handout %>
+    </div>
+    <div class="field">
+      <%= f.label :download_file_name %><br>
+      <%= f.text_field :download_file_name %>
+    </div>
+
+
+    <div class="field">
+      <%= f.select :course_id, options_from_collection_for_select(@course, 'id', 'name') %>
+      <%= f.select :week_id, options_from_collection_for_select(@week, 'id', 'name') %>
+    </div>
+
+
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>
+
+<% end %>

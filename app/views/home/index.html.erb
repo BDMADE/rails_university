@@ -1,2 +1,154 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<!--START MAIN CONTENT SECTION-->
+<style>
+    .hero-opaque {
+        /*background-image: url("assets/static/certification.png");
+        /*background-image: <%#= url_to_asset("certification.png")%>;
+        background-image: <%#= image_url('static/certification.png') %>;*/
+        background-image:url(<%= asset_path "hero/certification.png" %>);
+    }
+</style>
+<section class="hero-container white-bg hidden-sm hidden-xs">
+  <div class="hero hero-opaque"></div>
+  <div class="h1-wrapper">
+    <div class="homehero-content">
+      <div>
+        <h1 class="white">
+          Become a Rails<br>
+          Certified Professional</h1>
+
+        <p class="white" style=" font-size: 1.4em; ">
+          Take the Developer or DBA exam starting December 10, 2015</p>
+        <a class="btn btn-default" href="<%= courses_path %>">Register Now »</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div id="main" class="container" role="main">
+  <div class="row">
+    <div class="col-md-12">
+
+      <section><!-- online courses section -->
+        <!-- reduced space below the h1 to bring courses up higher, hopefully above the fold -->
+        <h1 class="mainhead" style=" margin-bottom: 0.3em; ">Online Courses</h1>
+        <!-- Example row of columns -->
+        <div class="row courseboxes vert-offset-2">
+
+          <div class="col-md-12">
+            <div class="row">
+              <% @courses.each do |course| %>
+                  <div class="col-sm-4 coursebox" id="course-m101n">
+                    <a href="<%= course_path(course.id) %>"><img src="/assets/<%= course.course_img %>" alt="<%= course.name %>"></a><br/>
+
+                    <p><a href="<%= course_path(course.id) %>"><%= course.code %> <%= course.name %></a></p>
+                  </div>
+              <% end %>
+
+            </div>
+          </div>
+
+
+        </div>
+        <!-- end outer row -->
+
+      </section>
+      <!--detail for Online Courses-->
+
+      <!--grey line-->
+      <div>
+        <hr>
+      </div>
+      <!--end grey line-->
+
+      <!--Public Training-->
+      <section class="vert-offset-4 vert-push-4">
+
+
+        <div>
+          <h1 class="mainhead">Public Training</h1>
+
+        </div>
+
+        <div>
+          <p>Accelerate your learning with in-person training taught by Rails engineers. These immersive classes offer
+            hands-on experience with Rails use cases based on years of field experience.
+            Developer and DBA classes offered around the globe. We offer 3-day and 4-day classes.
+          </p>
+
+        </div>
+
+        <p><a class="btn btn-default" href="#">Find Classes Near You &raquo;</a></p>
+      </section>
+      <!--end In Person Training section-->
+
+      <!--grey line-->
+      <div>
+        <hr>
+      </div>
+      <!--end grey line-->
+
+      <!-- Private Training -->
+      <section class="vert-offset-4 vert-push-4">
+
+
+        <div>
+
+
+          <h1 class="mainhead">Private Training</h1>
+
+        </div>
+
+        <div>
+
+          <p>Train team members all at once with customized classes designed to address the needs of your Rails
+            application and deployment.</p>
+
+          <p></p>
+
+        </div>
+
+        <p><a class="btn btn-default" href="#">Learn More &raquo;</a></p>
+      </section>
+      <!-- end Private Training section -->
+
+      <!--grey line-->
+      <div>
+        <hr>
+      </div>
+      <!--end grey line-->
+
+      <!--Professional Certification-->
+      <section class="vert-offset-4 vert-push-4">
+
+
+        <div>
+
+          <h1 class="mainhead">Professional Certification</h1>
+
+        </div>
+
+        <div class="col-md-6">
+          <img class="img-rounded" src="<%= image_path('profcert.png') %>">
+        </div>
+        <!--end col 8-->
+        <div class="col-md-6">
+
+          <div>
+
+            <p>Gain more visibility among hiring managers and recruiters looking to fill roles requiring one of the most
+              popular technologies today. Following our classes, take the next step and get certified. </p>
+
+          </div>
+
+          <p><a class="btn btn-default" href="#" role="button">Sign Up for the Next Exam &raquo;</a></p>
+        </div>
+        <!--end col 6-->
+      </section>
+      <!-- Professional Certification end -->
+    </div>
+    <!-- end col-md-12 -->
+  </div>
+  <!--end row-->
+</div><!-- END MAIN CONTENT CONTAINER -->
+

@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @syllabus.name %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @syllabus.title %>
+</p>
+
+<p>
+  <strong>Topics:</strong>
+  <%= @syllabus.topics %>
+</p>
+
+<p>
+  <strong>Released:</strong>
+  <%= @syllabus.released %>
+</p>
+
+<p>
+  <strong>Deadline:</strong>
+  <%= @syllabus.deadline %>
+</p>
+
+<p>
+  <strong>Lectures time:</strong>
+  <%= @syllabus.lectures_time %>
+</p>
+
+<p>
+  <strong>Homework time:</strong>
+  <%= @syllabus.homework_time %>
+</p>
+
+<p>
+  <strong>Handout:</strong>
+  <%= @syllabus.handout %>
+</p>
+
+<p>
+  <strong>Download file name:</strong>
+  <%= @syllabus.download_file_name %>
+</p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @syllabus.course_id %>
+</p>
+
+<p>
+  <strong>Week:</strong>
+  <%= @syllabus.week_id %>
+</p>
+
+<%= link_to 'Edit', edit_syllabus_path(@syllabus) %> |
+<%= link_to 'Back', syllabuses_path %>

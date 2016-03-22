@@ -1,7 +1,21 @@
 Rails.application.routes.draw do
+  resources :lectures
+  resources :syllabuses
+  resources :syllabuses
+  resources :courses
+  resources :roles
+  resources :weeks
+  resources :assignments
   root 'home#index'
 
-  get 'home/admin'
+  get 'admin'=>'home#admin'
+
+  get 'teacher' =>'home#administrator'
+
+  get 'subject/:id' => 'home#subject'
+  get 'courseware/:id' => 'home#courseware'
+
+  get 'dashboard' => 'home#dashboard'
 
   devise_for :users, controllers: {registrations: 'registrations'}
   # The priority is based upon order of creation: first created -> highest priority.

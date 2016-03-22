@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1 class="text-center"><%= @syllabus.course.code %>: <%= @syllabus.course.name %></h1>
+
+      <nav class="navbar navbar-courseware">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="/courses/MongoDB/M101J/2015_October/courseware">Courseware</a>
+          </li>
+          <li class="active">
+            <a href="/courses/MongoDB/M101J/2015_October/syllabus">Syllabus</a>
+          </li>
+          <!--<li>
+            <a href="/courses/MongoDB/M101J/2015_October/discussion/forum">Discussion</a>
+          </li>
+          <li>
+            <a href="/courses/MongoDB/M101J/2015_October/course_wiki">Wiki</a>
+          </li>-->
+          <li>
+            <a href="/courses/MongoDB/M101J/2015_October/progress">Progress</a>
+          </li>
+
+        </ul>
+      </nav>
+
+      <section>
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Units</th>
+            <th>Topics</th>
+            <th>Released</th>
+            <th>Deadline</th>
+            <th>Lectures</th>
+            <th>Homework</th>
+            <th>Handouts</th>
+          </tr>
+          </thead>
+          <tbody>
+
+          <% @syllabuses.each do |syllabus| %>
+              <tr>
+                <td><a href="#">
+                  Week <%= syllabus.week_id %>: <%= syllabus.title %>
+                </a></td>
+                <td class="topics"><%= syllabus.topics %></td>
+                <td class="day">
+                  <%= syllabus.released.strftime('%b %d %Y %H:%M') %> UTC
+                </td>
+                <td class="day">
+                  <%= syllabus.deadline.strftime('%b %d %Y %H:%M') %> UTC
+                </td>
+                <td><%= syllabus.lectures_time %></td>
+                <td><%= syllabus.homework_time %></td>
+                <td>
+                  <% if syllabus.download_file_name.empty? %>
+                      <%= render :text=>'No handout' %>
+                       <% else %>
+                      <a href="<%= asset_path '/static/'+ syllabus.course.code+ '/'+syllabus.download_file_name %>">Download</a>
+                      <%end%>
+
+                      </td>
+                      </tr>
+                  <% end %>
+                  </tbody>
+                  </table>
+                  </section>
+                  <div>
+                    <div>
+                      A certificate of completion will be available for download through your My Courses page
+                      after <%= @last_date.deadline.strftime('%B %d, %Y')  %>
+                    </div>
+                  </div>
+                  </div>
+                  </div>
+                  </div>
+
+

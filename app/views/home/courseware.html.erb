@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1 class="text-center"><%= @syllabus.course.code %>: <%= @syllabus.course.name %></h1>
+
+      <nav class="navbar navbar-courseware">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="/courseware/<%= params[:id] %>">Courseware</a>
+          </li>
+          <li class="active">
+            <a href="/courses/MongoDB/M101J/2015_October/syllabus">Syllabus</a>
+          </li>
+          <!--<li>
+            <a href="/courses/MongoDB/M101J/2015_October/discussion/forum">Discussion</a>
+          </li>
+          <li>
+            <a href="/courses/MongoDB/M101J/2015_October/course_wiki">Wiki</a>
+          </li>-->
+          <li>
+            <a href="/courses/MongoDB/M101J/2015_October/progress">Progress</a>
+          </li>
+
+        </ul>
+      </nav>
+
+      <section>
+        <div class="row">
+          <div class="col-sm-3 col-md-4">
+            <ul class="nav nav-stacked nav-course" id="accordion-courseware">
+            <li class="accordion-caret">
+              <strong class="text-uppercase"><a data-toggle="collapse" data-target="#collapse-Chapter_1_Introduction" href="#collapse-Chapter_1_Introduction" class="accordion-toggle collapsed">Chapter 1: Introduction</a></strong>
+
+              <ul class="nav collapse " id="collapse-Chapter_1_Introduction">
+                <li class="">
+                  <p>
+                    <a href="/courses/MongoDB/M101P/2015_October/courseware/Chapter_1_Introduction/52546540e2d4231cc6083fd6">
+                      <span class="section-viewed">Welcome to M101P</span>
+                    </a>
+                    <br/>
+                    <small>
+                      Quiz
+                    </small>
+                  </p>
+                </li>
+                <li class="">
+                  <p>
+                    <a href="/courses/MongoDB/M101P/2015_October/courseware/Chapter_1_Introduction/524af6b2e2d4235f73b619ee">
+                      <span class="section-viewed">What is MongoDB?</span>
+                    </a>
+                    <br/>
+                    <small>
+                      Quiz
+                    </small>
+                  </p>
+                </li>
+                <li class="">
+                  <p>
+                    <a href="/courses/MongoDB/M101P/2015_October/courseware/Chapter_1_Introduction/52530600e2d4237f053e42ad">
+                      <span class="section-unviewed">MongoDB Relative to Relational</span>
+                    </a>
+                    <br/>
+                    <small>
+                      Quiz
+                    </small>
+                  </p>
+                </li>
+              </ul>
+            </li>
+            </ul>
+          </div>
+          <div class="col-md-8">Body</div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+

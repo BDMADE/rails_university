@@ -1,0 +1,164 @@
+<p id="notice"><%= notice %></p>
+
+<% if user_signed_in? %>
+<p>
+  <strong>Name:</strong>
+  <%= @course.name %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @course.code %>
+</p>
+
+<p>
+  <strong>Start:</strong>
+  <%= @course.start %>
+</p>
+
+<p>
+  <strong>End:</strong>
+  <%= @course.end %>
+</p>
+
+<p>
+  <strong>Course img:</strong>
+  <%= @course.course_img %>
+</p>
+
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Back', courses_path %>
+
+
+
+<% else %>
+    <style>
+        .hero {
+            <% if @course.course_img.nil? %>
+            background-image:url(<%= asset_path "hero/certification.png" %>);
+            <% else %>
+            background-image:url(<%= asset_path "hero/"+@course.course_img %>);
+            <% end %>
+        }
+    </style>
+
+    <section class="hero-container">
+      <div class="hero"></div>
+      <div class="h1-wrapper">
+        <h1 class="white text-center"><%= @course.code %>: <%= @course.name %></h1>
+      </div>
+    </section>
+    <!--//////////////////////////////////////////////////////////////////////////////////////////////////-->
+    <!--START MAIN CONTENT SECTION-->
+
+
+
+
+    <div id="main" class="container" role="main">
+
+      <div class="row">
+        <div class="col-sm-12">
+          <section class="session vert-offset-6 vert-push-6">
+            <h2>Next Session</h2>
+            <div class="row">
+              <label class="col-sm-1 text-left">Start:</label>
+              <div class="col-sm-11 text-left">
+                <%= @course.start.strftime('%d %b %Y') %> at 17:00 UTC
+              </div>
+            </div>
+            <div class="row">
+              <label class="col-sm-1 text-left">End:</label>
+              <div class="col-sm-11 text-left">
+
+                <%= @course.end.strftime('%d %b %Y') %> at 17:00 UTC
+
+              </div>
+            </div>
+            <p>
+
+            <form action="#enroll" method="post">
+
+              <button class="btn btn-action" id="btn-register" type="submit">Register</button>
+            </form>
+
+            </p>
+          </section>
+
+          <!--detail for Online Courses-->
+          <section class="info vert-offset-6 vert-push-6">
+            <h2>About this course</h2>
+            <div id="main-about-blurb"><div>
+                <%= @course.about.html_safe %>
+              </div>
+
+
+            </div>
+
+            <h3>Details</h3>
+
+
+
+            <div>
+
+             <%= @course.details.html_safe %>
+            </div>
+
+
+
+            <h3>Objective</h3>
+
+            <div>
+            <%= @course.objective.html_safe %>
+            </div>
+
+
+
+            <h3>Prerequisites</h3>
+
+            <div>
+            <%= @course.prerequisites %>
+
+            </div>
+
+
+
+            <h3>System Requirements</h3>
+
+
+
+            <div>
+            <%= @course.system.html_safe %>
+
+            </div>
+
+
+
+            <h3>Agenda</h3>
+
+            <div>
+            <%= @course.agenda.html_safe %>
+
+
+            </div>
+
+
+          </section>
+
+
+            <h2>FAQ</h2>
+
+
+            <div><%= @course.faq.html_safe %> </div>
+
+
+        </div> <!-- col -->
+      </div> <!-- row -->
+      <!--end detail for Online Courses-->
+
+    </div><!-- END MAIN CONTENT CONTAINER -->
+
+
+
+
+
+<% end %>

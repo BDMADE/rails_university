@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  title: MyString
+  topics: MyString
+  released: 2015-12-01 16:56:49
+  deadline: 2015-12-01 16:56:49
+  lectures_time: 1
+  homework_time: 1
+  handout: false
+  download_file_name: MyString
+  course_id: 
+  week_id: 
+
+two:
+  name: MyString
+  title: MyString
+  topics: MyString
+  released: 2015-12-01 16:56:49
+  deadline: 2015-12-01 16:56:49
+  lectures_time: 1
+  homework_time: 1
+  handout: false
+  download_file_name: MyString
+  course_id: 
+  week_id: 

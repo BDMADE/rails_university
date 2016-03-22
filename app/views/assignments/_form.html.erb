@@ -1,0 +1,52 @@
+<% @course = Course.all
+   @week = Week.all
+%>
+
+<% if @course.empty? %>
+
+    <div class="field">
+      <%= link_to Create New Course,new_course_path %>
+    </div>
+
+<% elsif @week.empty? %>
+    <div class="field">
+      <%= link_to Create Week,new_week_path %>
+    </div>
+
+<% else %>
+
+    <%= form_for(@assignment) do |f| %>
+  <% if @assignment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@assignment.errors.count, "error") %> prohibited this assignment from being saved:</h2>
+
+      <ul>
+      <% @assignment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :details %><br>
+    <%= f.text_area :details %>
+  </div>
+  <div class="field">
+    <%= f.label :answer %><br>
+    <%= f.text_field :answer %>
+  </div>
+  <div class="field">
+    <%= f.select :course_id, options_from_collection_for_select(@course, 'id', 'name') %>
+    <%= f.select :week_id, options_from_collection_for_select(@week, 'id', 'name') %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<% end %>

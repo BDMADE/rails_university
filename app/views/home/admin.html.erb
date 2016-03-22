@@ -1,2 +1,9 @@
 <h1>Home#admin</h1>
-<p>Find me in app/views/home/admin.html.erb</p>
+
+<p id="notice"><%= notice %></p>
+
+<% @courses.each do |course|  %>
+
+    <a href="#" ><%= course.name %></a>
+
+<% end %>

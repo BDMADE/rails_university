@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Syllabuses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Title</th>
+      <th>Topics</th>
+      <th>Released</th>
+      <th>Deadline</th>
+      <th>Lectures time</th>
+      <th>Homework time</th>
+      <th>Handout</th>
+      <th>Download file name</th>
+      <th>Course</th>
+      <th>Week</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @syllabuses.each do |syllabus| %>
+      <tr>
+        <td><%= syllabus.name %></td>
+        <td><%= syllabus.title %></td>
+        <td><%= syllabus.topics %></td>
+        <td><%= syllabus.released %></td>
+        <td><%= syllabus.deadline %></td>
+        <td><%= syllabus.lectures_time %></td>
+        <td><%= syllabus.homework_time %></td>
+        <td><%= syllabus.handout %></td>
+        <td><%= syllabus.download_file_name %></td>
+        <td><%= syllabus.course_id %></td>
+        <td><%= syllabus.week_id %></td>
+        <td><%= link_to 'Show', syllabus %></td>
+        <td><%= link_to 'Edit', edit_syllabus_path(syllabus) %></td>
+        <td><%= link_to 'Destroy', syllabus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Syllabus', new_syllabus_path %>
